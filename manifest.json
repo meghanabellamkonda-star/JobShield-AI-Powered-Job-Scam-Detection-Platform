@@ -1,38 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "RedFlag - Scam Job Detector",
-  "version": "1.0.0",
-  "description": "Detect potential scam job listings on LinkedIn and Indeed using heuristic analysis",
+  "name": "JobShield - Scam Job Detector Companion",
+  "short_name": "JobShield",
+  "version": "2.0.0",
+  "description": "Launch the JobShield web application to analyze job listings and detect employment scams",
   "permissions": [
     "activeTab",
-    "scripting",
+    "tabs",
     "storage"
-  ],
-  "host_permissions": [
-   "*://*.linkedin.com/*",
-    "*://*.indeed.com/*",
-    "*://*.ziprecruiter.com/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": [
-     "*://*.linkedin.com/*",
-  "*://*.indeed.com/*",
-  "*://*.indeed.co.uk/*",
-  "*://*.indeed.ca/*",
-  "*://*.ziprecruiter.com/*"
-      ],
-      "js": ["content_script.js"],
-      "css": ["style.css"],
-      "run_at": "document_idle"
-    }
-  ],
   "action": {
-    "default_popup": "popup.html",
-    "default_title": "RedFlag - Scam Job Detector",
+    "default_title": "Analyze on JobShield Website",
     "default_icon": {
       "16": "rfman.png",
       "32": "rfman.png",

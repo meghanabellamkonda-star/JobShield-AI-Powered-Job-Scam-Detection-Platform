@@ -345,19 +345,292 @@
 
 .jobscan-extension-root .job-details .job-title {
   font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
   margin-bottom: 2px;
 }
 .jobscan-extension-root .job-details .job-company {
   color: var(--text-secondary);
-  margin-bottom: 4px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.jobscan-extension-root .job-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  background: var(--surface-alt);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.jobscan-extension-root .meta-item {
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.jobscan-extension-root .meta-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 4px;
 }
 .jobscan-extension-root .job-details .job-url {
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: 11px;
+  margin-top: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+}
+.jobscan-extension-root .job-details .job-url a {
+  color: hsl(var(--primary-color-hue), var(--primary-color-saturation), var(--primary-color-lightness));
+  text-decoration: none;
+}
+.jobscan-extension-root .job-details .job-url a:hover {
+  text-decoration: underline;
+}
+
+.jobscan-extension-root .risk-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.jobscan-extension-root .risk-badge.badge-low {
+  background-color: hsla(var(--success-color-hsl), 0.15);
+  color: hsl(var(--success-color-hsl));
+  border: 1px solid hsl(var(--success-color-hsl));
+}
+.jobscan-extension-root .risk-badge.badge-medium {
+  background-color: hsla(var(--warning-color-hsl), 0.15);
+  color: hsl(35, 90%, 35%);
+  border: 1px solid hsl(var(--warning-color-hsl));
+}
+.jobscan-extension-root .risk-badge.badge-high {
+  background-color: rgba(255, 16, 52, 0.15);
+  color: #ff1034;
+  border: 1px solid #ff1034;
+}
+.jobscan-extension-root .risk-badge.badge-critical {
+  background-color: #b8001d;
+  color: #ffffff;
+  border: 1px solid #850013;
+  animation: pulseWarning 2s infinite;
+}
+
+@keyframes pulseWarning {
+  0% { box-shadow: 0 0 0 0 rgba(184, 0, 29, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(184, 0, 29, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(184, 0, 29, 0); }
+}
+
+/* Payment Warning Card (Rule A Prominent Banner) */
+.jobscan-extension-root .payment-warning-card {
+  background: #fff0f2;
+  border: 2px solid #ff1034;
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(255, 16, 52, 0.15);
+}
+.jobscan-extension-root .payment-warning-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.jobscan-extension-root .payment-warning-icon {
+  font-size: 18px;
+}
+.jobscan-extension-root .payment-warning-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #b8001d;
+  letter-spacing: 0.5px;
+}
+.jobscan-extension-root .payment-warning-body {
+  font-size: 11px;
+  color: #4a000a;
+  line-height: 1.4;
+  margin: 0;
+}
+.jobscan-extension-root .payment-warning-body strong {
+  color: #b8001d;
+}
+
+/* Findings Section */
+.jobscan-extension-root .job-findings-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.jobscan-extension-root .findings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.jobscan-extension-root .findings-header h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+.jobscan-extension-root .findings-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.jobscan-extension-root .risk-category-display {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.jobscan-extension-root .risk-category-display.cat-low {
+  background: hsla(var(--success-color-hsl), 0.12);
+  color: hsl(var(--success-color-hsl));
+}
+.jobscan-extension-root .risk-category-display.cat-medium {
+  background: hsla(var(--warning-color-hsl), 0.15);
+  color: hsl(35, 90%, 35%);
+}
+.jobscan-extension-root .risk-category-display.cat-high {
+  background: rgba(255, 16, 52, 0.12);
+  color: #ff1034;
+}
+.jobscan-extension-root .risk-category-display.cat-critical {
+  background: #b8001d;
+  color: #ffffff;
+}
+
+.jobscan-extension-root .risk-score-display {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.jobscan-extension-root .findings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+.jobscan-extension-root .finding-card {
+  background: var(--surface-alt);
+  border-left: 3px solid var(--border);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+}
+.jobscan-extension-root .finding-card.severity-critical {
+  border-left-color: #b8001d;
+  background: rgba(184, 0, 29, 0.08);
+}
+.jobscan-extension-root .finding-card.severity-high {
+  border-left-color: #ff1034;
+  background: rgba(255, 16, 52, 0.05);
+}
+.jobscan-extension-root .finding-card.severity-medium {
+  border-left-color: hsl(var(--warning-color-hsl));
+  background: hsla(var(--warning-color-hsl), 0.05);
+}
+.jobscan-extension-root .finding-card.severity-low {
+  border-left-color: hsl(var(--info-color-hsl));
+  background: hsla(var(--info-color-hsl), 0.05);
+}
+.jobscan-extension-root .finding-card.severity-info {
+  border-left-color: var(--border-strong);
+  background: var(--surface-alt);
+}
+.jobscan-extension-root .finding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.jobscan-extension-root .finding-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 12px;
+}
+.jobscan-extension-root .finding-pts {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ff1034;
+  background: rgba(255, 16, 52, 0.1);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.jobscan-extension-root .finding-quote {
+  font-size: 11px;
+  color: #374151;
+  background: rgba(0, 0, 0, 0.04);
+  border-left: 2px solid #9ca3af;
+  margin: 4px 0 6px 0;
+  padding: 4px 8px;
+  font-style: italic;
+  line-height: 1.35;
+  border-radius: 0 4px 4px 0;
+}
+.jobscan-extension-root .finding-explanation {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.jobscan-extension-root .finding-recommendation {
+  font-size: 11px;
+  color: #1e3a8a;
+  background: #eff6ff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-top: 6px;
+  line-height: 1.35;
+}
+
+/* Missing Info and Verification Steps Subcards */
+.jobscan-extension-root .unverified-info-card,
+.jobscan-extension-root .verification-steps-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+.jobscan-extension-root .subcard-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 6px 0;
+}
+.jobscan-extension-root .unverified-info-list,
+.jobscan-extension-root .verification-steps-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.jobscan-extension-root .unverified-info-list li,
+.jobscan-extension-root .verification-steps-list li {
+  margin-bottom: 3px;
+}
+.jobscan-extension-root .verification-steps-list li:first-child {
+  font-weight: 500;
+}
+
+.jobscan-extension-root .findings-limitation {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  margin-top: 6px;
 }
 
 .jobscan-extension-root .reports-list {
@@ -532,39 +805,69 @@
 
 .jobscan-extension-root.jobscan-status .jobscan-status-content {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.jobscan-extension-root.jobscan-status .jobscan-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-grow: 1;
 }
 
 .jobscan-extension-root.jobscan-status .jobscan-icon {
   font-size: 20px !important;
-  line-height: 1 !important;
+  line-height: 1.2 !important;
+  flex-shrink: 0;
 }
 
 .jobscan-extension-root.jobscan-status .jobscan-message {
-  flex-grow: 1 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
   white-space: pre-wrap !important;
+}
+
+.jobscan-extension-root.jobscan-status .jobscan-details-list {
+  font-size: 11px !important;
+  opacity: 0.95 !important;
+  margin-top: 2px !important;
+  line-height: 1.4 !important;
+}
+
+.jobscan-extension-root.jobscan-status .jobscan-detail-item {
+  margin-bottom: 2px !important;
+}
+
+.jobscan-extension-root.jobscan-status .jobscan-close-btn {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+}
+.jobscan-extension-root.jobscan-status .jobscan-close-btn:hover {
+  opacity: 1;
 }
 
 .jobscan-extension-root.jobscan-status-analyzing {
   background-color: hsl(var(--info-color-hsl)) !important;
-  border-left-color: darken(hsl(var(--info-color-hsl)), 10%) !important;
+  border-left-color: hsl(210, 70%, 40%) !important;
   color: #fff !important;
 }
 .jobscan-extension-root.jobscan-status-success {
   background-color: hsl(var(--success-color-hsl)) !important;
-  border-left-color: darken(hsl(var(--success-color-hsl)), 10%) !important;
+  border-left-color: hsl(120, 60%, 35%) !important;
   color: #fff !important;
 }
 .jobscan-extension-root.jobscan-status-warning,
 .jobscan-extension-root.jobscan-status-caution {
   background-color: hsl(var(--warning-color-hsl)) !important;
-  border-left-color: darken(hsl(var(--warning-color-hsl)), 10%) !important;
+  border-left-color: hsl(35, 85%, 40%) !important;
   color: #212529 !important;
 }
 .jobscan-extension-root.jobscan-status-error {
   background-color: #ff1034 !important;
-  border-left-color: #ff1034 !important;
+  border-left-color: #b8001d !important;
   color: #ffffff !important;
 }
 .jobscan-extension-root.jobscan-status-error .jobscan-icon {
@@ -573,7 +876,7 @@
 
 .jobscan-extension-root.jobscan-status-info {
   background-color: hsl(var(--info-color-hsl)) !important;
-  border-left-color: darken(hsl(var(--info-color-hsl)), 10%) !important;
+  border-left-color: hsl(210, 70%, 40%) !important;
   color: #fff !important;
 }
 
@@ -591,3 +894,85 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border-strong);
 }
+
+/* Post Selection Highlighting on LinkedIn & Job Boards */
+.jobshield-selected-post,
+.redflag-selected-post {
+  outline: 2px solid #ef4444 !important;
+  outline-offset: 3px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25) !important;
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jobshield-post-indicator,
+.redflag-post-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Post Excerpt Card in Popup */
+.post-excerpt-card {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #6366f1;
+  border-radius: 4px;
+}
+
+.post-excerpt-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.post-excerpt-text {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.4;
+  color: #e2e8f0;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Finding Evidence Strength Badge */
+.finding-strength {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+
+.finding-strength.strength-explicit {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.finding-strength.strength-inferred {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+

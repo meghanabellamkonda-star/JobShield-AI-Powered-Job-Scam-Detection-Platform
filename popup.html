@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RedFlag - Scam Job Detector</title>
+    <title>JobShield - Scam Job Detector</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -12,10 +12,10 @@
       <header class="popup-header">
         <div class="header-content">
           <div class="logo">
-            <img src="./rfman.png" alt="RedFlag Mascot" class="logo-icon-img" />
-            <span class="logo-main-text">RedFlag</span>
+            <img src="./rfman.png" alt="JobShield Mascot" class="logo-icon-img" />
+            <span class="logo-main-text">JobShield</span>
           </div>
-          <div class="version">v1.0.0</div>
+          <div class="version">v1.1.0 (Live Fix)</div>
         </div>
       </header>
 
@@ -39,7 +39,7 @@
         <!-- Enable/Disable Toggle -->
         <div class="control-group">
           <label class="toggle-container">
-            <span class="toggle-label">Enable RedFlag</span>
+            <span class="toggle-label">Enable JobShield</span>
             <div class="toggle-switch">
               <input type="checkbox" id="enable-toggle" checked />
               <span class="toggle-slider"></span>
@@ -82,6 +82,18 @@
           <span class="button-icon">🔄</span>
           <span class="button-text">Reanalyze</span>
         </button>
+
+        <!-- Analyze Visible Post Button -->
+        <button id="analyze-first-btn" class="action-button primary" style="display: none">
+          <span class="button-icon">⚡</span>
+          <span class="button-text">Analyze Visible Post</span>
+        </button>
+
+        <!-- Select Another Post Button -->
+        <button id="select-another-btn" class="action-button secondary" style="display: none">
+          <span class="button-icon">👆</span>
+          <span class="button-text">Select Another Post</span>
+        </button>
       </section>
 
       <!-- Current Job Info -->
@@ -91,11 +103,67 @@
         style="display: none">
         <div class="section-header">
           <h3>Current Job</h3>
+          <span class="risk-badge" id="risk-badge">Low Risk</span>
         </div>
         <div class="job-details">
+          <!-- Prominent Payment Warning Card (Rule A Trigger) -->
+          <div class="payment-warning-card" id="payment-warning-card" style="display: none">
+            <div class="payment-warning-header">
+              <span class="payment-warning-icon">🚨</span>
+              <span class="payment-warning-title">EMPLOYMENT PAYMENT DEMAND DETECTED</span>
+            </div>
+            <p class="payment-warning-body">This posting demands fees, deposits, or training payments to secure a position. <strong>Legitimate employers NEVER charge candidates for jobs or internships.</strong> Do not transfer any money.</p>
+          </div>
+
           <div class="job-title" id="current-job-title">-</div>
           <div class="job-company" id="current-job-company">-</div>
-          <div class="job-url" id="current-job-url">-</div>
+          <div class="job-meta-grid">
+            <div class="meta-item"><span class="meta-label">Location:</span> <span id="current-job-location">-</span></div>
+            <div class="meta-item"><span class="meta-label">Workplace:</span> <span id="current-job-workplace">-</span></div>
+            <div class="meta-item"><span class="meta-label">Type:</span> <span id="current-job-type">-</span></div>
+            <div class="meta-item"><span class="meta-label">Salary:</span> <span id="current-job-salary">-</span></div>
+            <div class="meta-item"><span class="meta-label">Platform:</span> <span id="current-job-platform">-</span></div>
+            <div class="meta-item"><span class="meta-label">Content:</span> <span id="current-job-content-type">-</span></div>
+            <div class="meta-item"><span class="meta-label">Posted:</span> <span id="current-job-posted">-</span></div>
+            <div class="meta-item"><span class="meta-label">Activity:</span> <span id="current-job-activity">-</span></div>
+            <div class="meta-item"><span class="meta-label">Website:</span> <span id="current-job-website">-</span></div>
+            <div class="meta-item"><span class="meta-label">Recruiter:</span> <span id="current-job-email">-</span></div>
+          </div>
+          <div class="post-excerpt-card" id="post-excerpt-card" style="display: none">
+            <div class="post-excerpt-label">Posting Excerpt</div>
+            <blockquote class="post-excerpt-text" id="current-job-excerpt">-</blockquote>
+          </div>
+          <div class="job-url"><a id="current-job-url" href="#" target="_blank" rel="noopener noreferrer">-</a></div>
+        </div>
+
+        <!-- Risk Assessment Findings -->
+        <div class="job-findings-section" id="job-findings-section" style="display: none">
+          <div class="findings-header">
+            <h4>Detected Indicators</h4>
+            <div class="findings-header-right">
+              <span class="risk-category-display" id="risk-category-display">Low Risk</span>
+              <span class="risk-score-display" id="risk-score-display">Score: 0/100</span>
+            </div>
+          </div>
+          <div class="findings-list" id="findings-list">
+            <!-- Populated dynamically with evidence quotes and explanations -->
+          </div>
+
+          <!-- Missing or Unverified Information Card -->
+          <div class="unverified-info-card" id="unverified-info-card" style="display: none">
+            <h5 class="subcard-title">Missing / Unverified Details</h5>
+            <ul class="unverified-info-list" id="unverified-info-list"></ul>
+          </div>
+
+          <!-- Recommended Verification Steps -->
+          <div class="verification-steps-card" id="verification-steps-card" style="display: none">
+            <h5 class="subcard-title">Recommended Verification Steps</h5>
+            <ul class="verification-steps-list" id="verification-steps-list"></ul>
+          </div>
+
+          <div class="findings-limitation" id="findings-limitation">
+            Heuristic assessment based on extracted listing evidence, not proof of fraud.
+          </div>
         </div>
       </section>
 

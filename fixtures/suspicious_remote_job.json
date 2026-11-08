@@ -1,0 +1,16 @@
+{
+  "title": "Remote Online Data Processor",
+  "company": "Fast Cash Ventures Ltd",
+  "location": "Work From Home",
+  "workplace_type": "Remote",
+  "employment_type": "Part-Time",
+  "description": "Work 1 hour daily and earn ₹80,000 to ₹1,50,000 every week! 100% guaranteed selection for anyone with a smartphone, no interview needed. Must pay a refundable security deposit of ₹1,500 for the document verification software license. Only serious candidates reach out on WhatsApp at +91 9876543210. Limited slots, pay within 2 hours or offer will be cancelled!",
+  "expected_risk_category": "critical",
+  "expected_rules_matched": [
+    "UPFRONT_PAYMENT",
+    "SUSPICIOUS_MESSAGING",
+    "GUARANTEED_SELECTION",
+    "IMPLAUSIBLE_COMPENSATION",
+    "COERCIVE_URGENCY"
+  ]
+}
